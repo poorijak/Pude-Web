@@ -59,7 +59,10 @@ function LoginFormContent() {
 
   const handleGoogleLogin = () => {
     setIsLoading(true);
-    const targetUrl = new URL("/api/auth/google", window.location.origin);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "";
+    const targetUrl = apiUrl.startsWith("http")
+      ? new URL("/auth/google", apiUrl)
+      : new URL("/api/auth/google", window.location.origin);
     targetUrl.searchParams.set("callBackUrl", returnTo);
     window.location.href = targetUrl.toString();
   };
