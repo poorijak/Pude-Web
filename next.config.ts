@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const INTERNAL_API_URL =
-  process.env.INTERNAL_API_URL || "https://borrow-api-dev.bbxst-hub.dev";
+  process.env.INTERNAL_API_URL || "https://pude-api-dev.bbxst-hub.dev";
 
 const nextConfig: NextConfig = {
   output: "standalone",

@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   }
 
   const internalApiUrl =
-    process.env.INTERNAL_API_URL || "https://borrow-api-dev.bbxst-hub.dev";
+    process.env.INTERNAL_API_URL || "https://pude-api-dev.bbxst-hub.dev";
 
   try {
     const exchangeRes = await fetch(`${internalApiUrl}/auth/exchange`, {
