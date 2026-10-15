@@ -33,7 +33,7 @@ export function AppSidebar() {
       <SidebarHeader className="px-4 py-4 group-data-[collapsible=icon]:px-2.5">
         <div className="flex items-center justify-between gap-2 group-data-[collapsible=icon]:flex-col group-data-[collapsible=icon]:gap-3">
           <BrandMark wordmarkClassName={LABEL} />
-          <SidebarTrigger size="icon-md" className="text-slate-500" />
+          <SidebarTrigger size="icon-md" className="text-muted-foreground" />
         </div>
       </SidebarHeader>
       <SidebarContent>

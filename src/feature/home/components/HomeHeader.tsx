@@ -23,8 +23,8 @@ export function HomeHeader({
     <header className="flex items-center gap-4">
       <UserAvatar name={user.name} photoUrl={user.profile_photo_url} />
       <div className="min-w-0 flex-1">
-        <p className="text-base text-slate-500">{HOME.hello}</p>
-        <h1 className="truncate text-[28px] font-bold text-navy-900">
+        <p className="text-label text-muted-foreground">{HOME.hello}</p>
+        <h1 className="truncate text-display text-foreground">
           {HOME.mister(user.name)}
         </h1>
       </div>

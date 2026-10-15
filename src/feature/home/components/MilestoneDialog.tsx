@@ -27,7 +27,7 @@ export function MilestoneDialog({ open, days, onClose }: MilestoneDialogProps) {
         <span className="mx-auto flex size-28 animate-in zoom-in-75 items-center justify-center rounded-full bg-flame-soft duration-700">
           <Flame aria-hidden className="size-16 fill-flame text-flame" />
         </span>
-        <DialogTitle className="text-3xl font-bold">
+        <DialogTitle className="text-title">
           {HOME.milestoneTitle(days)}
         </DialogTitle>
         <DialogDescription className="text-lg">

@@ -1,16 +1,24 @@
 import type { NextConfig } from "next";
 
 const INTERNAL_API_URL =
-  process.env.INTERNAL_API_URL || "https://borrow-api-dev.bbxst-hub.dev";
+  process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL;
+if (!INTERNAL_API_URL) {
+  throw new Error("Set INTERNAL_API_URL (or NEXT_PUBLIC_API_URL) in .env");
+}
 
 const nextConfig: NextConfig = {
   output: "standalone",
   experimental: {
     agentFeedback: true,
   },
-  devIndicators: { position: "bottom-right" },
-  cacheComponents: true,
-  partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "pub-55c54a64a4904de38ffb99bcd80e714b.r2.dev",
+      },
+    ],
+  },
   turbopack: {
     rules: {
       "*.css": {

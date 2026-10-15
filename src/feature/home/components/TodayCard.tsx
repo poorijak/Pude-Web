@@ -35,25 +35,25 @@ export function TodayCard({ done }: { done: number }) {
             className="animate-ring-fill stroke-brand-500"
           />
         </svg>
-        <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold tabular-nums text-navy-900">
+        <span className="absolute inset-0 flex items-center justify-center text-stat tabular-nums text-foreground">
           {done}/{DAILY_GOAL}
         </span>
       </div>
       <div>
         {done === 0 ? (
           <>
-            <p className="text-2xl font-bold leading-snug text-navy-900">
+            <p className="text-stat text-foreground">
               {HOME.todayEmpty}
             </p>
-            <p className="text-[15px] text-slate-500">{HOME.todayEmptyHint}</p>
+            <p className="text-label text-muted-foreground">{HOME.todayEmptyHint}</p>
           </>
         ) : (
           <>
-            <p className="text-[15px] text-slate-500">{HOME.todayLabel}</p>
-            <p className="text-2xl font-bold leading-snug tabular-nums text-navy-900">
+            <p className="text-label text-muted-foreground">{HOME.todayLabel}</p>
+            <p className="text-stat tabular-nums text-foreground">
               {HOME.todayCount(done, DAILY_GOAL)}
             </p>
-            <p className="text-[15px] font-medium text-brand-700">
+            <p className="text-label text-brand-700">
               {reached ? HOME.todayGoalReached : HOME.todayRemaining(remaining)}
             </p>
           </>

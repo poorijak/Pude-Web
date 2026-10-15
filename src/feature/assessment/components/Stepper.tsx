@@ -11,9 +11,11 @@ interface StepperProps {
 
 function Connector({
   filled,
+  green = false,
   className,
 }: {
   filled: boolean;
+  green?: boolean;
   className?: string;
 }) {
   return (
@@ -21,7 +23,11 @@ function Connector({
       aria-hidden
       className={cn(
         "h-0.5 min-w-1.5 flex-1 rounded-full transition-colors duration-500",
-        filled ? "bg-brand-500" : "bg-slate-200",
+        filled
+          ? green
+            ? "bg-success-strong"
+            : "bg-brand-500"
+          : "bg-slate-200",
         className,
       )}
     />
@@ -42,7 +48,7 @@ function Node({
     return (
       <span
         title={label}
-        className="flex size-4 shrink-0 animate-in zoom-in-50 items-center justify-center rounded-full bg-brand-500 text-white duration-300"
+        className="flex size-4 shrink-0 animate-in zoom-in-50 items-center justify-center rounded-full bg-success-strong text-white duration-300"
       >
         <Check aria-hidden className="size-2.5" strokeWidth={3.5} />
         <span className="sr-only">{label}</span>
@@ -75,8 +81,9 @@ function pillClass(state: "done" | "active" | "upcoming") {
   return cn(
     "flex h-10 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 text-[15px] font-medium",
     state === "active" &&
-      "border-brand-200 bg-brand-50 font-semibold text-brand-700",
-    state === "done" && "border-brand-200 bg-card text-brand-700",
+      "border-brand-600 bg-brand-50 font-semibold text-brand-700 ring-1 ring-inset ring-brand-600",
+    state === "done" &&
+      "border-brand-600 bg-brand-600 text-white focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
     state === "upcoming" && "border-slate-200 bg-card text-slate-500",
   );
 }
@@ -120,7 +127,7 @@ export function Stepper({ items, current }: StepperProps) {
               key={item.id}
               className={cn(
                 "h-2 flex-1 rounded-full transition-colors duration-500",
-                index < current && "bg-brand-500",
+                index < current && "bg-success-strong",
                 index === current && "bg-brand-600",
                 index > current && "bg-slate-200",
               )}
@@ -171,9 +178,12 @@ export function Stepper({ items, current }: StepperProps) {
                 ) : null}
                 {CATEGORY_LABEL[group.category]}
               </span>
-              {group.indexes.map((index) => (
+              {group.indexes.map((index, position) => (
                 <span key={index} className="contents">
-                  <Connector filled={index <= current} />
+                  <Connector
+                    filled={index <= current}
+                    green={position > 0 && index < current}
+                  />
                   <Node index={index} current={current} total={total} />
                 </span>
               ))}

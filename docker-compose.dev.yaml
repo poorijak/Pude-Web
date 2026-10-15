@@ -4,6 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       target: builder
+      args:
+        # Dockerfile.dev declares this ARG; without a value it sets the env var
+        # to "" and masks .env during `next build`. Compose reads ./.env here.
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:?set NEXT_PUBLIC_API_URL in .env}
     container_name: pude-web
     ports:
       - "3000:3000"

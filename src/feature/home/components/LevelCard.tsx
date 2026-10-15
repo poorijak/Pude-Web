@@ -49,8 +49,8 @@ export function LevelCard({ level, stage }: LevelCardProps) {
     <SurfaceCard className="flex flex-col gap-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-[15px] text-slate-500">{HOME.levelTitle}</p>
-          <p className="mt-1 text-[28px] font-bold leading-snug tabular-nums text-navy-900">
+          <p className="text-label text-muted-foreground">{HOME.levelTitle}</p>
+          <p className="mt-1 text-stat tabular-nums text-foreground">
             {HOME.levelStage(level, stage)}
           </p>
         </div>
@@ -73,7 +73,7 @@ export function LevelCard({ level, stage }: LevelCardProps) {
           </li>
         ))}
       </ol>
-      <p className="text-[15px] text-slate-500">
+      <p className="text-label text-muted-foreground">
         {remaining === null ? HOME.topLevel : HOME.toNext(remaining, level + 1)}
       </p>
     </SurfaceCard>

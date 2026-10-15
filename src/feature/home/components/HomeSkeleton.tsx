@@ -21,7 +21,7 @@ export function HomeSkeleton() {
         <Skeleton className="h-44 rounded-3xl" />
         <Skeleton className="h-44 rounded-3xl" />
       </div>
-      <p role="status" className="text-center text-base text-slate-500">
+      <p role="status" className="text-center text-label text-muted-foreground">
         {COMMON.loading}
       </p>
     </main>

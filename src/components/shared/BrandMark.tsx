@@ -19,7 +19,7 @@ export function BrandMark({ wordmarkClassName }: BrandMarkProps) {
         <AudioLines aria-hidden className="size-6" strokeWidth={1.75} />
       </span>
       <span
-        className={cn("text-2xl font-bold text-navy-900", wordmarkClassName)}
+        className={cn("text-2xl font-bold text-foreground", wordmarkClassName)}
       >
         {APP_NAME}
       </span>

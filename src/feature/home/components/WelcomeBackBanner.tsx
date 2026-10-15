@@ -10,8 +10,8 @@ export function WelcomeBackBanner() {
         strokeWidth={1.75}
       />
       <div>
-        <p className="text-lg font-bold text-navy-900">{HOME.backTitle}</p>
-        <p className="text-base text-slate-500">{HOME.backBody}</p>
+        <p className="text-title text-foreground">{HOME.backTitle}</p>
+        <p className="text-label text-muted-foreground">{HOME.backBody}</p>
       </div>
     </div>
   );

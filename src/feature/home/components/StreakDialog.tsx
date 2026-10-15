@@ -43,7 +43,7 @@ function StreakBody({
           <Flame aria-hidden className="size-8 fill-flame text-flame" />
         </span>
         <div>
-          <p className="text-2xl font-bold">{HOME.streakDays(streak)}</p>
+          <p className="text-stat">{HOME.streakDays(streak)}</p>
           <p className="text-base text-muted-foreground">
             {target === null
               ? HOME.streakHintTop

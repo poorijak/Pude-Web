@@ -19,14 +19,14 @@ export const COMMON = {
 } as const;
 
 export const ASSESSMENT = {
-  introTitle: "มาลองดูกันนะคะ",
+  introTitle: "มาลองดูกันเลย!",
   introTiles: ["ฟัง", "ดูรูป", "พูด"],
   introListen: "ฟังคำอธิบาย",
   introSpeech:
     "เราจะให้คุณฟัง ดูรูป และพูดตาม ทั้งหมด 15 ข้อ ไม่มีถูกหรือผิด ทำเท่าที่ทำได้นะคะ",
   itemCount: "15 ข้อ",
   duration: "ประมาณ 5-7 นาที",
-  start: "เริ่มเลย",
+  start: "เริ่มแบบประเมิน",
   progress: (current: number, total: number) => `ข้อ ${current} จาก ${total}`,
   micTitle: "อนุญาตให้เข้าถึงไมโครโฟน",
   micBodyLines: ["ระบบต้องใช้ไมโครโฟนเพื่อรับฟังคำตอบของคุณ", "โดยจะไม่มีการบันทึกเสียงไว้"],
@@ -79,7 +79,7 @@ export const CATEGORY_LABEL: Record<PlacementCategory, string> = {
 };
 
 export const HOME = {
-  hello: "สวัสดีค่ะ",
+  hello: "สวัสดี",
   mister: (name: string) => `คุณ${name}`,
   levelTitle: "ระดับของคุณ",
   levelStage: (level: number, stage: number) =>
@@ -91,7 +91,7 @@ export const HOME = {
     `วันนี้ฝึกแล้ว ${done} จาก ${goal} ข้อ`,
   todayEmpty: "ยังไม่ได้ฝึก",
   todayEmptyHint: "เริ่มทีละข้อก็พอ",
-  ready: "พร้อมฝึกต่อไหมคะ",
+  ready: "พร้อมฝึกต่อไหม",
   readyLabel: "ฝึกต่อจากเดิม",
   goalHeroTitle: "วันนี้ครบเป้าแล้ว เก่งมากค่ะ",
   listenShort: "ฟัง",

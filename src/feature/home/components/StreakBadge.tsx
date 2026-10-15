@@ -16,10 +16,10 @@ export function StreakBadge({ streak, active, onClick }: StreakBadgeProps) {
       onClick={onClick}
       aria-label={label}
       className={cn(
-        "flex h-12 min-w-12 items-center justify-center gap-1.5 rounded-full px-4 text-lg font-bold outline-none transition-transform focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.98]",
+        "flex h-12 min-w-12 items-center justify-center gap-1.5 rounded-full px-4 text-title outline-none transition-transform focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.98]",
         active
           ? "bg-flame-soft text-flame-foreground"
-          : "bg-brand-50 text-slate-500",
+          : "bg-brand-50 text-muted-foreground",
       )}
     >
       <Flame
@@ -27,7 +27,7 @@ export function StreakBadge({ streak, active, onClick }: StreakBadgeProps) {
         strokeWidth={1.75}
         className={cn(
           "size-6",
-          active ? "fill-flame text-flame" : "text-slate-500",
+          active ? "fill-flame text-flame" : "text-muted-foreground",
         )}
       />
       <span

@@ -33,7 +33,7 @@ export function BottomNav() {
                 "flex w-full flex-col items-center justify-center gap-0.5 rounded-2xl py-1.5 text-[15px] font-medium focus-visible:ring-3",
                 active
                   ? "bg-brand-50 font-semibold text-brand-700"
-                  : "text-slate-500",
+                  : "text-muted-foreground",
               )}
             >
               <Icon aria-hidden className="size-6" strokeWidth={1.75} />

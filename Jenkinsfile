@@ -21,6 +21,7 @@ pipeline {
         REMOTE_APP_DIR            = '/home/deploy/apps/pude-web'
     }
 
+
     parameters {
         string(name: 'NEXT_PUBLIC_API_URL', defaultValue: 'https://pude-api.bbxst-hub.dev', description: 'โดเมน API พร้อม https:// สำหรับ environment ที่กำลัง build')
         choice(name: 'ACTION', choices: ['Build & Deploy', 'Rollback'], description: 'เลือก Action ที่ต้องการ')
