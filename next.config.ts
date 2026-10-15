@@ -5,6 +5,8 @@ const INTERNAL_API_URL =
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // Keep the development badge from covering the mobile microphone control.
+  devIndicators: false,
   experimental: {
     agentFeedback: true,
   },
@@ -19,6 +21,8 @@ const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       "*.css": {
+        // CSS Modules must keep their .module.css type and scoped class exports.
+        condition: { not: { path: /\.module\.css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
