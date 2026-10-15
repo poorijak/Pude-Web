@@ -8,8 +8,14 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "pub-55c54a64a4904de38ffb99bcd80e714b.r2.dev",
+      },
+    ],
+  },
   turbopack: {
     rules: {
       "*.css": {
