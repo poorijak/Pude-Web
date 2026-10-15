@@ -1,0 +1,16 @@
+.visualizer {
+  height: 64px;
+  width: 100%;
+  max-width: 288px;
+  padding: 0;
+  gap: 5px;
+  background: transparent;
+}
+
+.visualizer > div {
+  background: #b6cbe7;
+}
+
+.visualizer > div[data-highlighted="true"] {
+  background: #2f80ed;
+}

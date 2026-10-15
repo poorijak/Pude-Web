@@ -9,13 +9,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL("/auth?error=missing_code", request.url));
   }
 
-  const internalApiUrl = process.env.INTERNAL_API_URL;
-  if (!internalApiUrl) {
-    console.error("INTERNAL_API_URL is not set");
-    return NextResponse.redirect(
-      new URL("/auth?error=server_error", request.url),
-    );
-  }
+  const internalApiUrl =
+    process.env.INTERNAL_API_URL || "https://pude-api-dev.bbxst-hub.dev";
 
   try {
     const exchangeRes = await fetch(`${internalApiUrl}/auth/exchange`, {

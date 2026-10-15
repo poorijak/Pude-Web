@@ -5,14 +5,14 @@ import "./globals.css";
 const ibmPlexSansThai = IBM_Plex_Sans_Thai({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["thai", "latin"],
-  variable: "--font-sans",
+  variable: "--font-app-sans",
   display: "swap",
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-app-mono",
   display: "swap",
 });
 

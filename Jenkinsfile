@@ -23,7 +23,7 @@ pipeline {
 
 
     parameters {
-        string(name: 'NEXT_PUBLIC_API_URL', defaultValue: 'https://pude-api.bbxst-hub.dev', description: 'โดเมน API พร้อม https:// สำหรับ environment ที่กำลัง build')
+        string(name: 'NEXT_PUBLIC_API_URL', defaultValue: 'https://pude-api-dev.bbxst-hub.dev', description: 'โดเมน API พร้อม https:// สำหรับ environment ที่กำลัง build')
         choice(name: 'ACTION', choices: ['Build & Deploy', 'Rollback'], description: 'เลือก Action ที่ต้องการ')
         string(name: 'ROLLBACK_TAG', defaultValue: '', description: 'สำหรับ Rollback: ใส่ Image Tag ที่ต้องการ (เช่น Git Hash หรือ dev-123)')
         choice(name: 'ROLLBACK_TARGET', choices: ['dev', 'prod'], description: 'สำหรับ Rollback: เลือกว่าจะ Rollback ที่ Environment ไหน')

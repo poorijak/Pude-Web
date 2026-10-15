@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
 
 const INTERNAL_API_URL =
-  process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL;
-if (!INTERNAL_API_URL) {
-  throw new Error("Set INTERNAL_API_URL (or NEXT_PUBLIC_API_URL) in .env");
-}
+  process.env.INTERNAL_API_URL || "https://pude-api-dev.bbxst-hub.dev";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // Keep the development badge from covering the mobile microphone control.
+  devIndicators: false,
   experimental: {
     agentFeedback: true,
   },
@@ -22,6 +21,8 @@ const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       "*.css": {
+        // CSS Modules must keep their .module.css type and scoped class exports.
+        condition: { not: { path: /\.module\.css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
