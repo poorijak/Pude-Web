@@ -32,50 +32,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const data = (await exchangeRes.json().catch(() => null)) as {
-      accessToken?: string;
-      refreshToken?: string;
-    } | null;
-
-    const response = NextResponse.redirect(new URL(returnTo, request.url));
-
-    const isProduction = process.env.NODE_ENV === "production";
-
-    // ตั้งชื่อ Cookie อย่างชัดเจน: accessToken และ refreshToken
-    if (data?.accessToken) {
-      response.cookies.set("accessToken", data.accessToken, {
-        httpOnly: true,
-        secure: isProduction,
-        sameSite: "lax",
-        path: "/",
-        maxAge: 7 * 24 * 60 * 60, // 7 วัน
-      });
-    }
-
-    if (data?.refreshToken) {
-      response.cookies.set("refreshToken", data.refreshToken, {
-        httpOnly: true,
-        secure: isProduction,
-        sameSite: "lax",
-        path: "/",
-        maxAge: 30 * 24 * 60 * 60, // 30 วัน
-      });
-    }
-
-    // Forward Cookies อื่นๆ (ถ้ามี) จาก Backend
-    const getSetCookie = exchangeRes.headers.getSetCookie?.();
-    if (getSetCookie && getSetCookie.length > 0) {
-      for (const cookieStr of getSetCookie) {
-        if (
-          !cookieStr.startsWith("accessToken=") &&
-          !cookieStr.startsWith("refreshToken=")
-        ) {
-          response.headers.append("Set-Cookie", cookieStr);
-        }
-      }
-    }
-
-    return response;
+    // เข้าสู่ระบบสำเร็จและ redirect ไปยัง returnTo ทันทีโดยไม่ต้อง set cookie
+    return NextResponse.redirect(new URL(returnTo, request.url));
   } catch (error) {
     console.error("OAuth exchange server error:", error);
     return NextResponse.redirect(

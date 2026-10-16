@@ -29,10 +29,21 @@ export default function Home() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/auth"
+            href="/practice"
             className={buttonVariants({
               size: "lg",
               className: "h-12 px-8 rounded-xl font-medium shadow-md flex items-center gap-2",
+            })}
+          >
+            <Sparkles className="h-4 w-4" />
+            <span>เริ่มฝึกพูดทันที (Practice)</span>
+          </Link>
+          <Link
+            href="/auth"
+            className={buttonVariants({
+              variant: "outline",
+              size: "lg",
+              className: "h-12 px-8 rounded-xl font-medium shadow-xs flex items-center gap-2",
             })}
           >
             <LogIn className="h-4 w-4" />
@@ -40,49 +51,6 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full text-left">
-          <Card className="border-border/60 bg-card/60 backdrop-blur-md">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Google OAuth 2.0
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-xs">
-                เข้าใช้งานสะดวกรวดเร็วโดยไม่ต้องจำรหัสผ่านใหม่
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border/60 bg-card/60 backdrop-blur-md">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Secure Cookies
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-xs">
-                รักษาความปลอดภัยด้วย HTTP-Only JWT tokens
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border/60 bg-card/60 backdrop-blur-md">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                Rewrite Proxy
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-xs">
-                ซิงค์ข้อมูลกับ NestJS API ผ่าน Next.js Proxy ไร้ปัญหา CORS
-              </CardDescription>
-            </CardContent>
-          </Card>
-        </div>
       </main>
     </div>
   );
