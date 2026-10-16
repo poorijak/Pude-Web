@@ -184,7 +184,7 @@ function LoginContent({
             type="button"
             variant="outline"
             size="lg"
-            className=" w-full gap-3 rounded-lg border-border bg-background text-sm font-medium shadow-xs transition-colors hover:bg-muted"
+            className="h-12 w-full gap-3 rounded-lg border-border bg-background text-sm font-medium shadow-xs transition-colors hover:bg-muted"
             disabled={isLoading}
             aria-busy={isLoading}
             onClick={handleGoogleLogin}
